@@ -3,7 +3,8 @@ import './App.css';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Send, Image as ImgIcon, Plus, XCircle } from 'lucide-react';
 
-const API_KEY = "AIzaSyBKShwzw4BIj68K32-sCQa6dunbJPQaTh8";
+// Isse replace karo
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 function App() {
