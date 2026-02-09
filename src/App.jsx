@@ -8,7 +8,7 @@ const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 function App() {
-  const [messages, setMessages] = useState([{ text: "Boliye bhai! Rasmalai AI mobile par bhi mast chalega ab. 🔥", sender: "ai" }]);
+  const [messages, setMessages] = useState([{ text: "Welcome to Rasmalai AI", sender: "ai" }]);
   const [input, setInput] = useState("");
   const [imgData, setImgData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -35,7 +35,7 @@ function App() {
     setLoading(true); setInput(""); setImgData(null);
 
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
       let result;
       if (currentImg) {
         const imagePart = await convertToBase64(currentImg.file);
@@ -46,7 +46,7 @@ function App() {
       const text = await result.response.text();
       setMessages(prev => [...prev, { text, sender: "ai" }]);
     } catch (e) {
-      setMessages(prev => [...prev, { text: "Error: API Limit ya Network issue.", sender: "ai" }]);
+      setMessages(prev => [...prev, { text: "Error: Network issue.", sender: "ai" }]);
     } finally { setLoading(false); }
   };
 
@@ -58,7 +58,7 @@ function App() {
       </div>
 
       <div className="main">
-        <div className="chat-header">🍮 Rasmalai AI</div>
+        <div className="chat-header">Rasmalai AI</div>
 
         <div className="chat-window">
           {messages.map((m, i) => (
@@ -69,7 +69,7 @@ function App() {
               </div>
             </div>
           ))}
-          {loading && <div className="msg-row ai-row">Rasmalai cook ho rahi hai... ⏳</div>}
+          {loading && <div className="msg-row ai-row">Rasmalai is typing</div>}
           <div ref={scrollRef} />
         </div>
 
