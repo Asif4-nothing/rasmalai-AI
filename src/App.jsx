@@ -3,7 +3,8 @@ import './App.css';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Send, Plus, Sparkles, User, Menu, X, Settings, MessageSquare } from 'lucide-react';
 
-const API_KEY = ""; // Teri API key
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY; 
+
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 function App() {
