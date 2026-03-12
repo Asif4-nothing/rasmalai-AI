@@ -30,7 +30,7 @@ Follow these steps to get the project running locally:
 
 1. Clone the repository
 Bash
-git clone https://github.com/YOUR_USERNAME/rasmalai-ai.git
+git clone https://github.com/Asif4-nothing/rasmalai-AI.git
 cd rasmalai-ai
 2. Install Dependencies
 Bash
